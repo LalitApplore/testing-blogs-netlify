@@ -1,0 +1,33 @@
+---
+layout: base.njk
+title: "Home"
+---
+
+
+<section class="all-blogs-list-container">
+ {% include "category-list.njk" %} 
+<div class="all-blogs-list">
+{% for post in blogs  %}
+  <div class="single-blog-container">
+  <a class="single-blog-link"  href="/blogs/read/{{ post.slug }}">
+  <img class="blog-thumbnail" src="/assets/images/{{post.featuredImage}}" alt="{{post.title}} - {{post.excerpt}}"
+  />
+  <div class="single-blog-text-container">
+  <p id="blog-date">
+  <span>{{ post.publishedAt | date("MMMM d, yyyy") }}</span>
+  <span>{{ post.readTime }}</span>
+  </p>
+  <h4 id="blog-title">{{ post.title | truncate }}</h4>
+  <p id="blog-data-excerpt">{{ post.excerpt }}</p >
+  <p id="read-more-btn">Read more <span>→</span></p>
+  </div>
+  </a>
+  </div>
+{% endfor %}
+  <div id="load-more-blogs-btn-container">
+  <button id="load-more-blogs-btn"><span>↓</span> 
+  <span>Load more blogs</span>
+  </button>
+  </div>
+</div>
+</section>

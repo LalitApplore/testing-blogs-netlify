@@ -1,0 +1,34 @@
+---
+permalink: sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  {# ✅ Homepage #}
+  <url>
+    <loc>{{ metadata.url }}/</loc>
+    <lastmod>{{ post.publishedAt | date("MMMM d, yyyy") }}</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  {# ✅ All blog posts #}
+  {% for post in blogs %}
+  <url>
+    <loc>{{ metadata.url }}/blogs/{{ post.slug }}/</loc>
+    <lastmod>{{ post.publishedAt | date("MMMM d, yyyy") }}</lastmod>
+    <priority>0.8</priority>
+  </url>
+  {% endfor %}
+
+  {# ✅ Unique categories #}
+  {% set categories = [] %}
+  {% for post in blogs %}
+    {% if post.category not in categories %}
+      {% set categories = categories.concat([post.category]) %}
+    {% endif %}
+  {% endfor %}
+
+
+
+</urlset>

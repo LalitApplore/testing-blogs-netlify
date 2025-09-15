@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ post.excerpt }}">
+
+  <!-- og tag -->
+    <meta property="og:url" content="https://www.billcut.com/blogs/read/{{post.slug}}" />
+    <!-- Open Graph/Facebook Meta Tags for LinkedIn -->
+    <meta property="og:title" content="BillCut - Blogs | Learn smart financial strategies to save thousands on interest.">
+    <meta property="og:site_name" content="BillCut">
+    <meta property="og:url" content="https://www.billcut.com/blogs/read/{{ post.slug }}">
+    <meta property="og:description" content="Learn smart financial strategies to save thousands on interest. Master debt management, credit scores, EMI optimization and more with expert insights.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.billcut.com/blogs/assets/images/1740736941606_400x122.webp">
+
+
+    <!-- Twitter Card (specifically for Twitter/X) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BillCut - Blogs | Learn smart financial strategies to save thousands on interest.">
+    <meta name="twitter:description" content="Learn smart financial strategies to save thousands on interest. Master debt management, credit scores, EMI optimization and more with expert insights.">
+    <meta name="twitter:image" content="https://www.billcut.com/blogs/assets/images/1740736941606_400x122.webp">
+    <meta property="twitter:url" content="https://www.billcut.com/blogs/read/{{ post.slug }}" />
+
+  <link rel="icon" type="image/png" href="/assets/icons/favicon-96x96.png">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/footer.css">
+  <link rel="stylesheet" href="/css/blog-details.css">
+  <title>{{ title }}</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Peloading the fonts -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+   <!-- Google Tag Manager -->
+    <script async>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-5DTVNS77");
+    </script>
+    <!-- End Google Tag Manager -->
+</head>
+<body>
+
+ {% include "navbar.njk" %} 
+ <p class="blog-path-map"><span class="fixed-blog-path">home  / blog</span> / {{post.title}}</p>
+ <div id="blog-details-icon-container">
+              <a class="share-btn" id="instagram-share" target="_blank">
+                <img
+                  class="blog-details-icon-img"
+                  src="/assets/icons/instaIcon.svg"
+                  alt="Share on instagram"
+                />
+              </a>
+              <a class="share-btn" id="linkedin-share" target="_blank">
+                <img
+                  class="blog-details-icon-img"
+                  src="/assets/icons/linkedinIcon.svg"
+                  alt="Share on linkedin"
+                />
+              </a>
+              <a class="share-btn" id="facebook-share" target="_blank">
+                <img
+                  class="blog-details-icon-img"
+                  src="/assets/icons/facebook-icon.svg"
+                  alt="Share on Facebook"
+                />
+              </a>
+              <a class="share-btn" id="whatsapp-share" target="_blank">
+                <img
+                  class="blog-details-icon-img"
+                  src="/assets/icons/whatsapp-icon.svg"
+                  alt="share on WhatsApp"
+                />
+              </a>
+            </div>
+  <section class="blog-details-outer-container">
+  <section class="blog-details-container">
+  <div class="back-to-articles-container">
+  <span>←</span> 
+  <a href="/" class="back-to-articles">back to articles</a>
+  </div>
+  <p id="blogs-category">{{post.category}}</p>
+    <h1 id="blog-details-title">{{ post.title }}</h1>
+    <p id="blog-excerpt">{{ post.excerpt }}</p>
+    <p id="author-details">By {{ post.author }}  · {{ post.publishedAt | date("MMMM d, yyyy") }}</p>
+    <div class="blog-image-container">
+    <img id="blog-image" src="/assets/images/{{post.featuredImage }}" alt="{{post.title}} - {{post.excerpt}}" />
+    </div>
+    <div class="content">
+      {{ post.content | safe }}
+    </div>
+  </section>
+  {% include "footer.njk" %} 
+  </section>
+   
+   <script src="/js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn smart financial strategies to save thousands on interest. Master debt management, credit scores, EMI optimization and more with BillCut's expert insights.">
+  <title>Master Financial Strategies & Save Thousands on Interest | BillCut Blogs</title>
+  
+    <!-- og tag -->
+    <meta property="og:url" content="https://www.billcut.com/blogs/" />
+    <!-- Open Graph/Facebook Meta Tags for LinkedIn -->
+    <meta property="og:title" content="BillCut - Blogs | Learn smart financial strategies to save thousands on interest.">
+    <meta property="og:site_name" content="BillCut">
+    <meta property="og:url" content="https://www.billcut.com/blogs/">
+    <meta property="og:description" content="Learn smart financial strategies to save thousands on interest. Master debt management, credit scores, EMI optimization and more with expert insights.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.billcut.com/blogs/assets/images/1740736941606_400x122.webp">
+
+
+    <!-- Twitter Card (specifically for Twitter/X) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BillCut - Blogs | Learn smart financial strategies to save thousands on interest.">
+    <meta name="twitter:description" content="Learn smart financial strategies to save thousands on interest. Master debt management, credit scores, EMI optimization and more with expert insights.">
+    <meta name="twitter:image" content="https://www.billcut.com/blogs/assets/images/1740736941606_400x122.webp">
+    <meta property="twitter:url" content="https://www.billcut.com/" />
+
+  <link rel="icon" type="image/png" href="/assets/icons/favicon-96x96.png">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/footer.css">
+
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Peloading the fonts -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+     <!-- Google Tag Manager -->
+    <script async>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-5DTVNS77");
+    </script>
+    <!-- End Google Tag Manager -->
+
+</head>
+<body>
+ {% include "navbar.njk" %} 
+ {% include "hero-section.njk" %} 
+  <main>
+  {% block content %}{% endblock %}
+</main>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  {% include "footer.njk" %} 
+
+  <script src="/js/index.js"></script>
+</body>
+</html>

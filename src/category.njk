@@ -1,0 +1,35 @@
+---
+pagination:
+  data: categories
+  size: 1
+  alias: category
+permalink: "/blogs/category/{{ category }}/index.html"
+---
+
+{% extends "base.njk" %}
+
+{% block content %}
+
+{% include "category-list.njk" %} 
+  <div class="all-blogs-list">
+
+    {% for post in blogs %}
+      {% if post.category == category %}
+        <div class="single-blog-container">
+  <a class="single-blog-link"  href="/blogs/read/{{ post.slug }}">
+  <img class="blog-thumbnail" src="/assets/images/{{post.featuredImage}}" />
+  <div class="single-blog-text-container">
+  <p id="blog-date">{{ post.publishedAt | date("MMMM d, yyyy") }}
+  </p>
+  <h4 id="blog-title">{{ post.title | truncate }}</h4>
+  <p id="blog-data-excerpt">{{ post.excerpt }}</p >
+  <p id="read-more-btn">Read more <span>→</span></p>
+  </div>
+  </a>
+  </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endblock %}
+
+
