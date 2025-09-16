@@ -9,15 +9,24 @@ title: "Home"
 <div class="all-blogs-list">
 {% for post in blogs  %}
   <div class="single-blog-container">
-  <a class="single-blog-link"  href="/blogs/read/{{ post.slug }}">
-  <img class="blog-thumbnail" src="/assets/images/{{post.featuredImage}}" alt="{{post.title}} - {{post.excerpt}}"
-  />
+  <a class="single-blog-link"  href="/blogs/{{ post.slug }}">
+   <img 
+  class="blog-thumbnail"
+  src="/assets/images/{{ post.featuredImage }}" 
+  alt="{{ post.title }} - {{ post.excerpt }}"
+  {% if loop.index > 2 %}
+    loading="lazy"
+  {% else %}
+    loading="eager" fetchpriority="high"
+  {% endif %}
+>
+
   <div class="single-blog-text-container">
   <p id="blog-date">
   <span>{{ post.publishedAt | date("MMMM d, yyyy") }}</span>
   <span>{{ post.readTime }}</span>
   </p>
-  <h4 id="blog-title">{{ post.title | truncate }}</h4>
+  <h1 id="blog-title">{{ post.title | truncate }}</h1>
   <p id="blog-data-excerpt">{{ post.excerpt }}</p >
   <p id="read-more-btn">Read more <span>→</span></p>
   </div>

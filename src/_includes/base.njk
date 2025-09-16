@@ -26,8 +26,18 @@
 
   <link rel="icon" type="image/png" href="/assets/icons/favicon-96x96.png">
   <title>{{ title }}</title>
-  <link rel="stylesheet" href="/css/styles.css">
+
+<!-- Preloading styles.css immediately -->
+<link rel="preload" href="/css/styles.css" as="style">
+<link rel="stylesheet" href="/css/styles.css">
+
+<!-- Loading footer.css asynchronously -->
+<link rel="stylesheet" href="/css/footer.css" media="print" onload="this.media='all'">
+
+<!-- Fallback for no-JS users -->
+<noscript>
   <link rel="stylesheet" href="/css/footer.css">
+</noscript>
 
 
 

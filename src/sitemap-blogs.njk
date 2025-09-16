@@ -15,7 +15,7 @@ eleventyExcludeFromCollections: true
   {# ✅ All blog posts #}
   {% for post in blogs %}
   <url>
-    <loc>{{ metadata.url }}/blogs/{{ post.slug }}/</loc>
+    <loc>{{ metadata.url }}/{{ post.slug }}/</loc>
     <lastmod>{{ post.publishedAt | date("MMMM d, yyyy") }}</lastmod>
     <priority>0.8</priority>
   </url>

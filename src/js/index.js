@@ -102,7 +102,8 @@ if(  document.getElementById("blog-details-share-btn")){
   });
 
   // On button click
-  loadMoreBtn.addEventListener("click", () => {
+  if(loadMoreBtn){
+      loadMoreBtn.addEventListener("click", () => {
     const nextCount = visibleCount + increment;
     blogs.forEach((blog, index) => {
       if (index < nextCount) {
@@ -116,4 +117,5 @@ if(  document.getElementById("blog-details-share-btn")){
       loadMoreBtn.style.display = "none";
     }
   });
+  }
 });

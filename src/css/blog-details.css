@@ -237,6 +237,7 @@ padding-bottom: 2rem;
 }
   #blog-image{
     aspect-ratio: 16/9;
+    transform: none;
   }
 }
 
