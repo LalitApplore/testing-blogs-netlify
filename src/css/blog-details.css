@@ -202,6 +202,8 @@ padding-bottom: 2rem;
   #blog-details-icon-container {
     position: fixed; 
     display: flex; 
+    justify-content: center;
+    align-items: center;
     gap: 10px;
     bottom: 20px;
     left: 50%;
@@ -219,6 +221,12 @@ padding-bottom: 2rem;
   #blog-details-icon-container.show {
     opacity: 1;
   }
+  #blog-details-share-btn {
+  background-color: transparent;
+  border-radius: 21px;
+  color: #000000;
+  
+}
 
 /* mobile */
 @media (max-width: 480px){
@@ -265,5 +273,17 @@ padding-bottom: 2rem;
     left: 20px;
     background-color: transparent;
     border: none;
+  }
+  #blog-details-share-btn {
+    font-size: 0.5rem;
+padding-right: 0.3rem;
+    font-weight: 900;
+    order: -1;
+  }
+  .share-all-btn{
+    padding: 0.3rem;
+    border-radius: 100%;
+    background-color: #000000;
+    cursor: pointer;
   }
 }

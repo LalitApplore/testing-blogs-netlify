@@ -9,7 +9,7 @@ title: "Home"
 <div class="all-blogs-list">
 {% for post in blogs  %}
   <div class="single-blog-container">
-  <a class="single-blog-link"  href="/blogs/{{ post.slug }}">
+  <a class="single-blog-link"  href="/{{ post.slug }}">
    <img 
   class="blog-thumbnail"
   src="/assets/images/{{ post.featuredImage }}" 

@@ -1,19 +1,42 @@
+{% set fixedCategories = ["emi-basics", "credit-score","investment-tips","debt-management", "financial-planning", "debt-management"] %}
+
 <ul class="blog-category-list">
-<li><a href="/">All</a></li>
-<li><a href="/blogs/category/emi-basics">emi basics</a></li>
-<li><a href="/blogs/category/credit-score">credit score</a></li>
-<li><a href="/blogs/category/debt-management">debt management</a></li>
-<li><a href="/blogs/category/financial-planning">finanacial planning</a></li>
-<li><a href="/blogs/category/investment-tips">investment tips</a></li>
+  <!-- Always show All -->
+  <li><a href="/">All</a></li>
+  <li><a href="/category/credit-score/">CREDIT SCORE</a></li>
+  <li><a href="/category/emi-basics/">EMI BASICS</a></li>
+  <li><a href="/category/financial-planning/">Financial Planning</a></li>
+  <li><a href="/category/investment-tips/">Investment Tips</a></li>
+  <li><a href="/category/debt-management/">Debt Management</a></li>
+
+<!-- Dropdown for remaining categories -->
+<li style="position:relative">
+      <label for="desktop-category-dropdown" id="category-dropdown-desktop-placeholder">More Categories</label>
+  <select id="desktop-category-dropdown"  >
+    <option disabled hidden >More Categories</option>
+    {% for cat in categories %}
+      {% if cat not in fixedCategories %}
+        <option value="{{ cat | slugify }}">
+          {{ cat | replace("-", " ") | capitalize }}
+        </option>
+      {% endif %}
+    {% endfor %}
+
+  </select>
+
+</li>
 </ul>
+
+
 <div class="categroy-dropdown-container">
 <label for="categroy-dropdown" style="opacity:0 "></label>
-<select id="categroy-dropdown" name="blogs-categories">
-  <option value="all">ALL</option>
-  <option value="emi-basics">Emi Basics</option>
-  <option value="credit-score">Credit Score</option>
-  <option value="debt-management">Debt Management</option>
-  <option value="financial-planning">Financial Planning</option>
-  <option value="investment-tips">Investment Tips</option>
+<select id="categroy-dropdown" name="blogs-categories"">
+  <option value='all'>ALL</option>
+  {% for cat in categories %}
+    <option value="{{ cat | slugify }}">
+      {{ cat | replace("-", " ") | capitalize }}
+    </option>
+  {% endfor %}
 </select>
+
 </div>

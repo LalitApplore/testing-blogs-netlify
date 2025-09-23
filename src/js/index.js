@@ -14,9 +14,10 @@ console.log("blogs-v 1.1.0")
   });
 
 
-// setting up the drop menu
+// NAVIGATION : setting up the drop menu for mobile
 document.querySelectorAll(" #categroy-dropdown ").forEach(element => {
     element.addEventListener("change",function(e){
+      console.log("line21",e.target.value)
         if(e.target.value==='all'){
 window.location.href='/' 
         }
@@ -26,7 +27,10 @@ window.location.href=`/category/${e.target.value}`
 })
 });
 
+
+//DROPDOWN VALUE : for mobile
 document.querySelectorAll(" #categroy-dropdown ").forEach(element => {
+
         let categorySlug = window.location.pathname
   .replace(/\/$/, "")
   .split("/")        
@@ -38,6 +42,46 @@ else{
 element.value=categorySlug;
 }
 })
+
+// NAVIGATION : setting up the drop menu for desktop
+document.querySelectorAll(" #desktop-category-dropdown ").forEach(element => {
+    element.addEventListener("change",function(e){
+        if(e.target.value==='all'){
+window.location.href='/' 
+        }
+        else{
+window.location.href=`/category/${e.target.value}`
+        }
+})
+});
+
+// FIXED CATEGORIES ARRAY
+const fixedCategoriesArray=["emi-basics", "credit-score","investment-tips","debt-management", "financial-planning", "debt-management"]
+
+//DROPDOWN VALUE : for desktop
+document.querySelectorAll(" #desktop-category-dropdown ").forEach((element,index) => {
+
+        let categorySlug = window.location.pathname
+  .replace(/\/$/, "")
+  .split("/")        
+  .pop();         
+  console.log(categorySlug , fixedCategoriesArray.includes(categorySlug))   
+if(categorySlug ==''){
+   element.value='hh'
+     console.log("hitting",categorySlug,element[index].value)
+}
+else if(fixedCategoriesArray.includes(categorySlug)){
+  console.log("hitting",categorySlug,element[index])
+ element.value='hh'
+}
+else{
+element.value=categorySlug;
+document.getElementById("category-dropdown-desktop-placeholder").style.display="none";
+}
+})
+
+
+
 
 // sharing buttons
 document.addEventListener("DOMContentLoaded", function () {
