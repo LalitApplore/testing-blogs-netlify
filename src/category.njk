@@ -16,8 +16,8 @@ permalink: "/category/{{ category }}/index.html"
     {% for post in blogs %}
       {% if post.category == category %}
         <div class="single-blog-container">
-  <a class="single-blog-link"  href="/blogs/read/{{ post.slug }}">
-  <img class="blog-thumbnail" src="/assets/images/{{post.featuredImage}}" />
+  <a class="single-blog-link"  href="/{{ post.slug }}">
+  <img class="blog-thumbnail" src="/assets/images/{{loop.index}}.webp" />
   <div class="single-blog-text-container">
   <p id="blog-date">{{ post.publishedAt | date("MMMM d, yyyy") }}
   </p>

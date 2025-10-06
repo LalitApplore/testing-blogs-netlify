@@ -12,7 +12,7 @@ title: "Home"
   <a class="single-blog-link"  href="/{{ post.slug }}">
    <img 
   class="blog-thumbnail"
-  src="/assets/images/{{ post.featuredImage }}" 
+  src="/assets/images/{{ (loop.index % 10) + 1 }}.webp" 
   alt="{{ post.title }} - {{ post.excerpt }}"
   {% if loop.index > 2 %}
     loading="lazy"
@@ -33,10 +33,13 @@ title: "Home"
   </a>
   </div>
 {% endfor %}
+
+{% if blogs | length >12 %} 
   <div id="load-more-blogs-btn-container">
   <button id="load-more-blogs-btn"><span>↓</span> 
   <span>Load more blogs</span>
   </button>
   </div>
+  {% endif %}
 </div>
 </section>

@@ -56,7 +56,7 @@ window.location.href=`/category/${e.target.value}`
 });
 
 // FIXED CATEGORIES ARRAY
-const fixedCategoriesArray=["emi-basics", "credit-score","investment-tips","debt-management", "financial-planning", "debt-management"]
+const fixedCategoriesArray=["ipo-watch", "upi-credit","fintech-trends","startup-funding", "markets-and-policy"]
 
 //DROPDOWN VALUE : for desktop
 document.querySelectorAll(" #desktop-category-dropdown ").forEach((element,index) => {
@@ -136,7 +136,7 @@ if(  document.getElementById("blog-details-share-btn")){
   const blogs = document.querySelectorAll(".all-blogs-list .single-blog-container");
   const loadMoreBtn = document.getElementById("load-more-blogs-btn");
   let visibleCount = 12; // initially show 12
-  const increment = 8;   // load 8 more each time
+  const increment = 12;   // load 12 more each time
 
   // Show first 12
   blogs.forEach((blog, index) => {

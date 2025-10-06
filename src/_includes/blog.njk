@@ -98,10 +98,10 @@
     <p id="blog-excerpt">{{ post.excerpt }}</p>
     <p id="author-details">By {{ post.author }}  · {{ post.publishedAt | date("MMMM d, yyyy") }}</p>
     <div class="blog-image-container">
-    <img id="blog-image" src="/assets/images/{{post.featuredImage }}" alt="{{post.title}} - {{post.excerpt}}" />
+    <img id="blog-image" src="/assets/images/{{ ((pagination.pageNumber + 1)%10) + 1 }}.webp"alt="{{post.title}} - {{post.excerpt}}" />
     </div>
     <div class="content">
-      {{ post.content | safe }}
+       {{ post.content | injectId(post.id) | safe }}
     </div>
   </section>
   {% include "footer.njk" %} 

@@ -29,7 +29,11 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addCollection("blogs", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/blogs/*.md");
   });
-
+  // replace __Id with blogId
+  eleventyConfig.addFilter("injectId", (content, id) => {
+  if (!content || !id) return content;
+  return content.replace(/blogs__ID__/g, `blogs_${id}`);
+  });
   // Add a date filter
 // Add a date filter
 eleventyConfig.addFilter("date", (dateObj, format = "MMMM d, yyyy") => {
@@ -76,6 +80,8 @@ eleventyConfig.addFilter("truncate", (str, len = 35) => {
   }).use(markdownItAttrs);
 
   eleventyConfig.setLibrary("md", markdownLib);
+  
+
 
   return {
     dir: {
