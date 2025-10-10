@@ -8,15 +8,15 @@ eleventyExcludeFromCollections: true
   {# ✅ Homepage #}
   <url>
     <loc>{{ metadata.url }}/</loc>
-    <lastmod>{{ post.publishedAt | date("MMMM d, yyyy") }}</lastmod>
+    <lastmod>{{ post.PublishedAt | date("MMMM d, yyyy") }}</lastmod>
     <priority>1</priority>
   </url>
 
   {# ✅ All blog posts #}
   {% for post in blogs %}
   <url>
-    <loc>{{ metadata.url }}/{{ post.slug }}/</loc>
-    <lastmod>{{ post.publishedAt | date("MMMM d, yyyy") }}</lastmod>
+    <loc>{{ metadata.url }}/{{ post.Slug }}/</loc>
+    <lastmod>{{ post.PublishedAt | date("MMMM d, yyyy") }}</lastmod>
     <priority>0.8</priority>
   </url>
   {% endfor %}
@@ -25,7 +25,7 @@ eleventyExcludeFromCollections: true
   {% set categories = [] %}
   {% for post in blogs %}
     {% if post.category not in categories %}
-      {% set categories = categories.concat([post.category]) %}
+      {% set categories = categories.concat([post.categories]) %}
     {% endif %}
   {% endfor %}
 

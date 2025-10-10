@@ -12,6 +12,9 @@ html,body{
 h2{
     margin: 2rem 0 1rem;
 }
+h4{
+    margin: .5rem 0 0.5rem;
+}
 /* the meta-data styling */
 .blog-details-outer-container{
     /* border: 1px solid blue; */
@@ -121,7 +124,7 @@ color: #1570EF;
     color: #282628;
 }
 .content h3{
-    margin: 1.5rem 0 0.7rem;
+    margin: 1.5rem 0 1rem;
     font-size: 1.5rem;
     letter-spacing: 1px;
     font-weight: 600;
@@ -145,6 +148,7 @@ blockquote>p{
 }
 .blog-details-container li{
     margin:1rem 0.5rem;
+    line-height: 1.5;
 }
 strong{
     font-weight: 600;
@@ -224,6 +228,45 @@ padding-bottom: 2rem;
   
 }
 
+.cta{
+border-top: 1px solid #ccc;
+padding-top: 1.5rem;
+margin-top: 1rem;
+font-style: italic;
+}
+.cta>a{
+    font-style: normal;
+}
+.cta>a:hover{
+opacity: 0.9;
+}
+table{
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+    border: 0;
+    margin-bottom: 2rem;
+}
+table tr{
+    border: none;
+    padding: 0.5rem 0;
+    margin-bottom: 1rem !important;
+}
+table th{
+padding: 0.5rem 0 1rem;
+border:none;
+border-bottom: 1px solid #cccccc17;
+text-align: left;
+}
+table td{
+    border: none;
+    padding: 0.5rem 0 0.8rem 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+}
+table tr:nth-child(2n){
+    background-color: #90b6ec2a;
+}
 /* mobile */
 @media (max-width: 480px){
   .blog-details-container{

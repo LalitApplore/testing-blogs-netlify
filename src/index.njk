@@ -9,11 +9,11 @@ title: "Home"
 <div class="all-blogs-list">
 {% for post in blogs  %}
   <div class="single-blog-container">
-  <a class="single-blog-link"  href="/{{ post.slug }}">
+  <a class="single-blog-link"  href="/{{ post.Slug }}">
    <img 
   class="blog-thumbnail"
   src="/assets/images/{{ (loop.index % 10) + 1 }}.webp" 
-  alt="{{ post.title }} - {{ post.excerpt }}"
+  alt="{{ post.Title }} - {{ post.Excerpt | safe }}"
   {% if loop.index > 2 %}
     loading="lazy"
   {% else %}
@@ -23,11 +23,11 @@ title: "Home"
 
   <div class="single-blog-text-container">
   <p id="blog-date">
-  <span>{{ post.publishedAt | date("MMMM d, yyyy") }}</span>
-  <span>{{ post.readTime }}</span>
+  <span>{{ post.PublishedAt | date("MMMM d, yyyy") }}</span>
+  <span>{{ post.ReadingTime }}</span>
   </p>
-  <h1 id="blog-title">{{ post.title | truncate }}</h1>
-  <p id="blog-data-excerpt">{{ post.excerpt }}</p >
+  <h1 id="blog-title">{{ post.Title | truncate }}</h1>
+  <p id="blog-data-excerpt">{{ post.Excerpt | safe }}</p >
   <p id="read-more-btn">Read more <span>→</span></p>
   </div>
   </a>

@@ -3,16 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="{{ post.excerpt }}">
+  <meta name="description" content="{{ post.MetaData.MetaDescription }}">
+  <meta name="title" content="{{ post.MetaData.MetaTitle }}">
+  <meta name="keywords" content="{{ post.MetaData.MetaKeyword }}">
 
-  <title>{{ post.title }}</title>
+  <title>{{ post.Title }}</title>
 
   <!-- og tag -->
-    <meta property="og:url" content="https://www.billcut.com/blogs/read/{{post.slug}}" />
+    <meta property="og:url" content="https://www.billcut.com/blogs/read/{{post.Slug}}" />
     <!-- Open Graph/Facebook Meta Tags for LinkedIn -->
     <meta property="og:title" content="BillCut - Blogs | Learn smart financial strategies to save thousands on interest.">
     <meta property="og:site_name" content="BillCut">
-    <meta property="og:url" content="https://www.billcut.com/blogs/read/{{ post.slug }}">
+    <meta property="og:url" content="https://www.billcut.com/blogs/read/{{ post.Slug }}">
     <meta property="og:description" content="Learn smart financial strategies to save thousands on interest. Master debt management, credit scores, EMI optimization and more with expert insights.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://www.billcut.com/blogs/assets/images/1740736941606_400x122.webp">
@@ -23,7 +25,7 @@
     <meta name="twitter:title" content="BillCut - Blogs | Learn smart financial strategies to save thousands on interest.">
     <meta name="twitter:description" content="Learn smart financial strategies to save thousands on interest. Master debt management, credit scores, EMI optimization and more with expert insights.">
     <meta name="twitter:image" content="https://www.billcut.com/blogs/assets/images/1740736941606_400x122.webp">
-    <meta property="twitter:url" content="https://www.billcut.com/blogs/read/{{ post.slug }}" />
+    <meta property="twitter:url" content="https://www.billcut.com/blogs/read/{{ post.Slug }}" />
 
   <link rel="icon" type="image/png" href="/assets/icons/favicon-96x96.png">
   <link rel="stylesheet" href="/css/styles.css">
@@ -55,7 +57,7 @@
 <body>
 
  {% include "navbar.njk" %} 
- <p class="blog-path-map"><span class="fixed-blog-path">home  / blog</span> / {{post.title}}</p>
+ <p class="blog-path-map"><span class="fixed-blog-path">home  / blog</span> / {{post.Title}}</p>
  <div id="blog-details-icon-container">
               </a>
               <a class="share-btn" id="linkedin-share" target="_blank">
@@ -93,16 +95,21 @@
   <span>←</span> 
   <a href="/" class="back-to-articles">back to articles</a>
   </div>
-  <p id="blogs-category">{{post.category}}</p>
-    <h1 id="blog-details-title">{{ post.title }}</h1>
-    <p id="blog-excerpt">{{ post.excerpt }}</p>
-    <p id="author-details">By {{ post.author }}  · {{ post.publishedAt | date("MMMM d, yyyy") }}</p>
+  <p id="blogs-category">{{post.Categories}}</p>
+    <h1 id="blog-details-title">{{ post.Title }}</h1>
+    <p id="blog-excerpt">{{ post.Excerpt | safe }}</p>
+    <p id="author-details">By {{ post.Author }}  · {{ post.PublishedAt | date("MMMM d, yyyy") }}</p>
     <div class="blog-image-container">
-    <img id="blog-image" src="/assets/images/{{ ((pagination.pageNumber + 1)%10) + 1 }}.webp"alt="{{post.title}} - {{post.excerpt}}" />
+    <img id="blog-image" src="/assets/images/{{ ((pagination.pageNumber + 1)%10) + 1 }}.webp"alt="{{post.AltTag}}" />
     </div>
     <div class="content">
-       {{ post.content | injectId(post.id) | safe }}
+       {{ post.Content | injectId(post.BlogNo) | safe }}
     </div>
+    <div class="cta" style="margin:24px 0;text-align:center;">
+    <p style="text-align:left;line-height:1.5;margin-bottom:1.3rem">Are you still struggling with higher rate of interests on your credit card debts? Cut your bills with BillCut Today!
+</p>
+
+    <a href="https://www.billcut.com/?src=blogs_{{ post.BlogNo }}" target="_blank" style="display:inline-block;width:300px;padding:12px 18px;background:#4a67ff;color:#fff;border-radius:8px;font-weight:600;">Get Started Now</a></div>
   </section>
   {% include "footer.njk" %} 
   </section>
