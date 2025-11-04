@@ -8,7 +8,7 @@ eleventyExcludeFromCollections: true
   {# ✅ Homepage #}
   <url>
     <loc>{{ metadata.url }}/</loc>
-    <lastmod>{{ post.PublishedAt | date("MMMM d, yyyy") }}</lastmod>
+    <lastmod>2025-10-01</lastmod>
     <priority>1</priority>
   </url>
 
@@ -16,7 +16,7 @@ eleventyExcludeFromCollections: true
   {% for post in blogs %}
   <url>
     <loc>{{ metadata.url }}/{{ post.Slug }}/</loc>
-    <lastmod>{{ post.PublishedAt | date("MMMM d, yyyy") }}</lastmod>
+    <lastmod>{{ post.PublishedAt | date("yyyy-MM-dd") }}</lastmod>
     <priority>0.8</priority>
   </url>
   {% endfor %}

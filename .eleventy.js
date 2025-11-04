@@ -19,7 +19,7 @@ module.exports = function(eleventyConfig) {
   let blogs = collectionApi.getFilteredByGlob("src/blogs/*.md"); // or your JSON
   let categories = new Set();
   blogs.forEach(b => {
-    if (b.data.category) categories.add(b.data.category);
+    if (b.data.Categories[0]) categories.add(b.data.Categories[0]);
   });
   return [...categories];
 });
@@ -82,6 +82,20 @@ eleventyConfig.addFilter("truncate", (str, len = 35) => {
   eleventyConfig.setLibrary("md", markdownLib);
   
 
+  // removing speacial category names
+ eleventyConfig.addFilter("slugify", function(value) {
+    if (!value) return "";
+    return value
+      .toString()
+      .trim()
+      .toLowerCase()
+      .replace(/&/g, "and")
+      .replace(/\s+/g, "-")
+      .replace(/[^\w-]+/g, "")
+      .replace(/--+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  });
+
 
   return {
     dir: {
@@ -93,3 +107,5 @@ eleventyConfig.addFilter("truncate", (str, len = 35) => {
     markdownTemplateEngine: "njk",
   };
 };
+
+

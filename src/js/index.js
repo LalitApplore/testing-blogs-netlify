@@ -54,7 +54,7 @@ window.location.href=`/category/${e.target.value}`
         }
 })
 });
-
+// console.log(window.location.pathname)
 // FIXED CATEGORIES ARRAY
 const fixedCategoriesArray=["ipo-watch", "upi-credit","fintech-trends","startup-funding", "markets-and-policy"]
 
@@ -75,8 +75,9 @@ else if(fixedCategoriesArray.includes(categorySlug)){
  element.value='hh'
 }
 else{
-element.value=categorySlug;
-document.getElementById("category-dropdown-desktop-placeholder").style.display="none";
+  element.value=categorySlug;
+  console.log(categorySlug,element.value);
+  document.getElementById("category-dropdown-desktop-placeholder").style.display="none";
 }
 })
 
@@ -135,7 +136,7 @@ if(  document.getElementById("blog-details-share-btn")){
   document.addEventListener("DOMContentLoaded", () => {
   const blogs = document.querySelectorAll(".all-blogs-list .single-blog-container");
   const loadMoreBtn = document.getElementById("load-more-blogs-btn");
-  let visibleCount = 12; // initially show 12
+  let visibleCount = 500; // initially show 12
   const increment = 12;   // load 12 more each time
 
   // Show first 12

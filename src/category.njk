@@ -3,7 +3,7 @@ pagination:
   data: categories
   size: 1
   alias: category
-permalink: "/category/{{ category }}/index.html"
+permalink: "/category/{{ category | slugify  }}/index.html"
 ---
 
 {% extends "base.njk" %}
@@ -14,15 +14,24 @@ permalink: "/category/{{ category }}/index.html"
   <div class="all-blogs-list">
 
     {% for post in blogs %}
-      {% if post.category == category %}
+      {% if post.Categories[0] == category %}
         <div class="single-blog-container">
-  <a class="single-blog-link"  href="/{{ post.slug }}">
-  <img class="blog-thumbnail" src="/assets/images/{{loop.index}}.webp" />
+  <a class="single-blog-link"  href="/{{ post.Slug }}">
+     <img 
+  class="blog-thumbnail"
+  src="/assets/images/{{ (loop.index % 10) + 1 }}.webp" 
+  alt="{{ post.Title }} - {{ post.Excerpt | safe }}"
+  {% if loop.index > 2 %}
+    loading="lazy"
+  {% else %}
+    loading="eager" fetchpriority="high"
+  {% endif %}
+>
   <div class="single-blog-text-container">
-  <p id="blog-date">{{ post.publishedAt | date("MMMM d, yyyy") }}
+  <p id="blog-date">{{ post.PublishedAt | date("MMMM d, yyyy") }}
   </p>
-  <h4 id="blog-title">{{ post.title | truncate }}</h4>
-  <p id="blog-data-excerpt">{{ post.excerpt }}</p >
+  <h4 id="blog-title">{{ post.Title | truncate }}</h4>
+  <p id="blog-data-excerpt">{{ post.Excerpt }}</p >
   <p id="read-more-btn">Read more <span>→</span></p>
   </div>
   </a>

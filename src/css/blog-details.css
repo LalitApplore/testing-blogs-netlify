@@ -214,12 +214,14 @@ padding-bottom: 2rem;
     border-radius: 50px;
     padding: 0.8rem 1rem;
     background-color: #FFFFFF;
-    transition: opacity 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    visibility: hidden;
   }
 
   /* show when active */
   #blog-details-icon-container.show {
     opacity: 1;
+    visibility: visible;
   }
   #blog-details-share-btn {
   background-color: transparent;

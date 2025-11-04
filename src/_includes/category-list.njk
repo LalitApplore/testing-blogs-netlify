@@ -1,13 +1,13 @@
-{% set fixedCategories = ["ipo-watch", "upi-credit","fintech-trends","startup-funding", "markets-and-policy"] %}
+{% set fixedCategories = ["indian-economy", "personal-finance","rural-finance","digital-banking", "fintech-innovation"] %}
 
 <ul class="blog-category-list">
   <!-- Always show All -->
   <li><a href="/">All</a></li>
-  <li><a href="/category/ipo-watch/">IPO Watch</a></li>
-  <li><a href="/category/upi-credit/">UPI Credit</a></li>
-  <li><a href="/category/fintech-trends/">Fintech Trends</a></li>
-  <li><a href="/category/startup-funding/">Startup Funding</a></li>
-  <li><a href="/category/markets-and-policy/">Markets And Policy</a></li>
+  <li><a href="/category/indian-economy/">Indian Economy</a></li>
+  <li><a href="/category/personal-finance/">Personal Finance</a></li>
+  <li><a href="/category/rural-finance/">Rural Finance</a></li>
+  <li><a href="/category/digital-banking/">Digital Banking</a></li>
+  <li><a href="/category/fintech-innovation/">Fintech Innovation</a></li>
 
 <!-- Dropdown for remaining categories -->
 <li style="position:relative">
@@ -16,8 +16,8 @@
     <option disabled hidden >More Categories</option>
     {% for cat in categories %}
       {% if cat not in fixedCategories %}
-        <option value="{{ cat | slugify }}">
-          {{ cat | replace("-", " ") | capitalize }}
+        <option value="{{ cat | slugify | safe }}">
+          {{ cat | replace("-", " ") | capitalize | safe }}
         </option>
       {% endif %}
     {% endfor %}
